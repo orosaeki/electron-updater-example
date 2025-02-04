@@ -91,7 +91,9 @@ autoUpdater.on('download-progress', (progressObj) => {
   sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
+  //sendStatusToWindow('Update downloaded');
+  sendStatusToWindow('Update downloaded. restart');
+  autoUpdater.quitAndInstall(true, true);  
 });
 app.on('ready', function() {
   // Create the Menu
@@ -142,6 +144,6 @@ app.on('ready', function()  {
 // })
 // autoUpdater.on('download-progress', (progressObj) => {
 // })
-autoUpdater.on('update-downloaded', (info) => {
-  autoUpdater.quitAndInstall();  
-})
+// autoUpdater.on('update-downloaded', (info) => {
+//   autoUpdater.quitAndInstall();  
+// })
